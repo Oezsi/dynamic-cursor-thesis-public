@@ -1,0 +1,267 @@
+:root {
+   --color-active: #be5046;
+   --color-green: #98c379;
+   --color-bg: #ffffff;
+   --color-ring: #1f1f1f;
+   --color-grayed: #a1a1a1;
+
+   --ui-fg: #1f1f1f;
+   --ui-muted: #333333;
+   --ui-card: #ffffff;
+   --ui-border: #a1a1a1;
+   --ui-accent: #be5046;
+}
+
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html,
+body {
+   height: 100%;
+   background: var(--color-bg);
+   overflow: hidden;
+   font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+   color: var(--ui-fg);
+}
+
+#stage {
+   display: block;
+}
+
+body.trial-active #stage {
+   cursor: none;
+}
+
+#hud {
+   position: fixed;
+   top: 10px;
+   left: 14px;
+   font-size: 12px;
+   letter-spacing: 0.02em;
+   color: var(--ui-muted);
+   user-select: none;
+   pointer-events: none;
+   z-index: 5;
+}
+
+#overlay {
+   position: fixed;
+   inset: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 24px;
+   background: #ececec;
+   z-index: 10;
+   overflow-y: auto;
+}
+
+.card {
+   width: min(650px, 100%);
+   margin: auto;
+   background: var(--ui-card);
+   border: 2px solid var(--ui-border);
+   border-radius: 15px;
+   padding: 32px 36px;
+   display: flex;
+   flex-direction: column;
+   gap: 14px;
+}
+
+.card-title {
+   font-size: 28px;
+   font-weight: 650;
+   line-height: 1.2;
+}
+
+.card-subtitle {
+   font-size: 18px;
+   color: var(--ui-muted);
+   margin-top: -6px;
+}
+
+.card-body {
+   font-size: 18px;
+   line-height: 1.55;
+   color: var(--ui-fg);
+}
+
+.card-hint {
+   font-size: 12px;
+   color: var(--ui-muted);
+   margin-top: 2px;
+}
+
+.btn {
+   align-self: flex-start;
+   margin-top: 8px;
+   padding: 11px 20px;
+   font-size: 15px;
+   font-weight: 600;
+   color: #fff;
+   background: var(--ui-accent);
+   border: none;
+   border-radius: 7px;
+   cursor: pointer;
+}
+
+.btn:hover {
+   filter: brightness(1.08);
+}
+
+.btn:active {
+   filter: brightness(0.95);
+}
+
+.btn:disabled {
+   opacity: 0.45;
+   cursor: not-allowed;
+   filter: none;
+}
+
+.form-actions {
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   margin-top: 8px;
+}
+
+.form-actuons.btn {
+   margin-top: 0;
+}
+
+.btn-ghost {
+   color: var(--ui-accent);
+   background: transparent;
+   border: 1px solid ver(--ui-accent);
+}
+
+.card-list {
+   margin: 2px 0 2px 22px;
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
+}
+
+.card-list-item {
+   font-size: 18px;
+   line-height: 1.5;
+   color: var(--ui-fg);
+}
+
+.form {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   margin: 6px 0 2px;
+}
+
+.form-group {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+
+.form-question {
+   font-size: 18px;
+   font-weight: 600;
+   color: var(--ui-fg);
+}
+
+.radio-group {
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
+}
+
+.radio-option {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   font-size: 17px;
+   color: var(--ui-fg);
+   cursor: pointer;
+}
+
+.radio-option input,
+.consent-row input {
+   width: 17px;
+   height: 17px;
+   accent-color: var(--ui-accent);
+   cursor: pointer;
+}
+
+.consent-row {
+   display: flex;
+   align-items: flex-start;
+   gap: 10px;
+   margin-top: 4px;
+   font-size: 17px;
+   line-height: 1.45;
+   color: var(--ui-fg);
+   cursor: pointer;
+}
+
+.note {
+   font-size: 15px;
+   line-height: 1.45;
+   color: var(--ui-accent);
+   font-weight: 600;
+}
+
+.scale {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   flex-wrap: wrap;
+}
+
+.scale-point {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 3px;
+   cursor: pointer;
+}
+
+.scale-point input {
+   width: 17px;
+   height: 17px;
+   accent-color: var(--ui-accent);
+   cursor: pointer;
+}
+
+.scale-num {
+   font-size: 13px;
+   color: var(--ui-muted);
+}
+
+.scale-anchor {
+   font-size: 14px;
+   line-height: 1.3;
+   color: var(--ui-muted);
+   max-width: 120px;
+}
+
+.input {
+   width: 220px;
+   padding: 8px 10px;
+   font-size: 16px;
+   color: var(--ui-fg);
+   background: #ffffff;
+   border: 1px solid var(--ui-border);
+   border-radius: 6px;
+}
+
+.input-narrow {
+   width: 120px;
+}
+
+.input:focus {
+   outline: none;
+   border-color: var(--ui-accent);
+}
