@@ -42,29 +42,17 @@ export function drawTunnel(ctx, tunnel, colors, { grayed = false, dir = 1 } = {}
    const top = axis === "x" ? perpLo : alongLo;
    const bottom = axis === "x" ? perpHi : alongHi;
 
-   ctx.lineWidth = 4;
+   const wallW = 4;
+   const capW = 5;
+   const overshoot = capW / 2;
+
    const wallColor = grayed ? colors.gray : colors.ring;
    const goalColor = grayed ? colors.gray : colors.green;
    const entryColor = colors.active;
 
-   ctx.strokeStyle = wallColor;
-   ctx.beginPath();
-   if (axis === "x") {
-      ctx.moveTo(left, top);
-      ctx.lineTo(right, top);
-      ctx.moveTo(left, bottom);
-      ctx.lineTo(right, bottom);
-   } else {
-      ctx.moveTo(left, top);
-      ctx.lineTo(left, bottom);
-      ctx.moveTo(right, top);
-      ctx.lineTo(right, bottom);
-   }
-   ctx.stroke();
-
    const drawCap = (which, color) => {
       ctx.strokeStyle = color;
-      ctx.lineWidth = 5;
+      ctx.lineWidth = capW;
       ctx.beginPath();
       if (axis === "x") {
          const xx = which === "lo" ? left : right;
@@ -81,5 +69,22 @@ export function drawTunnel(ctx, tunnel, colors, { grayed = false, dir = 1 } = {}
    const entryIsA = dir > 0;
    drawCap(entryIsA ? "hi" : "lo", goalColor);
    drawCap(entryIsA ? "lo" : "hi", entryColor);
+
+   ctx.strokeStyle = wallColor;
+   ctx.lineWidth = wallW;
+   ctx.beginPath();
+   if (axis === "x") {
+      ctx.moveTo(left - overshoot, top);
+      ctx.lineTo(right + overshoot, top);
+      ctx.moveTo(left - overshoot, bottom);
+      ctx.lineTo(right + overshoot, bottom);
+   } else {
+      ctx.moveTo(left, top - overshoot);
+      ctx.lineTo(left, bottom + overshoot);
+      ctx.moveTo(right, top - overshoot);
+      ctx.lineTo(right, bottom + overshoot);
+   }
+   ctx.stroke();
+
 }
 
