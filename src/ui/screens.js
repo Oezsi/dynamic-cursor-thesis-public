@@ -288,10 +288,16 @@ export function renderEnd(overlay, { status, onRetry }) {
       return;
    }
 
-   card(overlay, {
+   const box = card(overlay, {
       title: texts.endTitle,
       paragraphs: [texts.endBody, status === "done" ? u.done : u.pending],
    });
+
+   if (status === "done") {
+      const link = el("a", "btn", u.completionButton);
+      link.href = "https://app.prolific.com/submissions/complete?cc=C1EGF0II";
+      box.appendChild(link);
+   }
 }
 
 // Small progress HUD shown during trials

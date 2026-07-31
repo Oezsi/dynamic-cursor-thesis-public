@@ -9,7 +9,7 @@ export const texts = {
    subtitle:
       "Introduction and Informed Consent • Researcher: Sinan Öz (Prof. Niels Henze), University of Tübingen",
    welcomeBody: [
-      "In this study, you will complete a series of short pointing and steering tasks with the mouse cursor. On each trial you will move the cursor to a highlighted target or guide it through a narrow path, as quickly and accurately as possible. The study consists of multiple trials and takes approximately 15 minutes to complete.",
+      "In this study, you will complete a series of short pointing and steering tasks with the mouse cursor. On each trial you will move the cursor to a highlighted target or guide it through a narrow path, as quickly and accurately as possible. The study consists of multiple trials and takes approximately 20 minutes to complete.",
       "As stated in the task description on Prolific, you must use a Mac laptop and control the cursor with the built-in trackpad and open the study in a recent version of Google Chrome. Only take part if you are at least 18 years old. If you cannot meet these requirements, please return to Prolific.",
       "The study runs in fullscreen and must be completed in one sitting. If the browser leaves fullscreen mode or the window loses focus, please return to fullscreen and continue quickly from the screen shown.",
 
@@ -32,14 +32,13 @@ export const texts = {
       fitts: {
          title: "Clicking targets",
          body:
-            "You will see several circles arranged in a ring, with one circle highlighted in red at a time. Move the cursor to the highlighted circle and click it. As soon as you click, the next circle is highlighted, so you can work your way around the ring. Click as quickly as possible, but be sure to hit each circle accurately, speed and accuracy are equally important. You will begin with a practice trial.",
+            "You will see several circles arranged in a ring, with one circle highlighted in red at a time. Move the cursor to the highlighted circle and click it. As soon as you click, the next circle is highlighted, so you can work your way around the ring. Click as quickly as possible, but be sure to hit each circle accurately, speed and accuracy are equally important.",
       },
       steering: {
          title: "Steering through a tunnel",
          body:
             `You will see a straight tunnel formed by two walls. Move the cursor from the start of the tunnel (red line) to the far end (green line), staying between the walls the whole way.
-            Go as fast as you can while keeping the cursor inside the tunnel.
-            You will begin with a practice trial.`,
+            Go as fast as you can while keeping the cursor inside the tunnel.`,
       },
    },
 
@@ -80,14 +79,14 @@ export const texts = {
       items: [
          { id: "control", text: "I felt in control of the cursor." },
          { id: "precision", text: "I could position the cursor precisely." },
-         { id: "ease", text: "Using this cursor felt easy." },
+         { id: "speed", text: "I could position the cursor fast." },
          { id: "liking", text: "I liked using this cursor." },
       ],
    },
 
    breakTitle: "Break",
    breakBody:
-      "Take a short break before the next cursor. Continue whenever you are ready.",
+      "Continue whenever you are ready.",
    remaining: (n) => `Remaining: ${n} block(s).`,
 
    fullscreen: {
@@ -113,10 +112,11 @@ export const texts = {
       "Thank you for taking part. Your data is being submitted – please wait for the confirmation before returning to Prolific.",
    upload: {
       pending: "Submitting your data…",
-      done: "Your data has been submitted.",
+      done: "Your data has been submitted. Please click the button below to complete the study on Prolific, otherwise your submission cannot be approved and paid.",
+      completionButton: "Complete study on Prolific",
       errorTitle: "Submission failed",
       errorBody: "Your data could not be submitted. Please try again.",
       retryButton: "Try again",
    },
-   continueHint: "Press space or click to continue",
+   continueHint: "Click to continue",
 };

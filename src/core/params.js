@@ -13,7 +13,7 @@ export function parseParams(search = "") {
    return {
       cursorOrder: parseCursorOrder(q.get("cursor")),
       axesOrder: parseAxesOrder(q.get("axes")),
-      prolificPid: q.get("PID"),
+      prolificPid: q.get("PROLIFIC_PID"),
       debug: q.get("debug") === "1",
    };
 }

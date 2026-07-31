@@ -259,7 +259,7 @@ export function createExperiment({ colors, overlay, hud, params = {} }) {
       const missing = [];
       if (!params.cursorOrder) missing.push("cursor");
       if (!params.axesOrder) missing.push("axes");
-      if (!params.prolificPid) missing.push("PID");
+      if (!params.prolificPid) missing.push("PROLIFIC_PID");
       return missing;
    }
 
@@ -308,6 +308,7 @@ export function createExperiment({ colors, overlay, hud, params = {} }) {
 
       session = {
          group,
+         prolificPid: params.prolificPid,
          age: data.age,
          sex: data.sex,
          handedness: data.handedness,

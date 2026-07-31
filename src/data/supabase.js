@@ -58,7 +58,7 @@ async function insert(c, table, rows) {
 export function createUploader() {
    let sessionRow = null;
    let sessionDone = false;
-   let running = false;
+   let chain = Promise.resolve(true);
    const pending = [];
 
    function setSession(row) {
@@ -74,11 +74,16 @@ export function createUploader() {
       return pending.length;
    }
 
-   // Works through the queue: session first (once), then each pending block in order.
-   // Retruns true when the queue is empty, false if anything remains for a later retry.
+   // Serialises concurrent calls: a new flush waits for the one already
+   // running and then works through whatever is left in the queue.
+   // Resolves true when the queue is empty, false if anything remains for a later retry. 
    async function flush() {
-      if (running) return pending.length === 0;
-      running = true;
+      chain = chain.then(run);
+      return chain;
+   }
+
+   // Works through the queue: session first, then each pending block in order
+   async function run() {
       try {
          const c = await config()
          if (!c) return false;
@@ -105,8 +110,6 @@ export function createUploader() {
             e,
          );
          return false;
-      } finally {
-         running = false;
       }
    }
 

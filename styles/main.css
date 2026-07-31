@@ -98,11 +98,13 @@ body.trial-active #stage {
 
 .btn {
    align-self: flex-start;
+   display: inline-block;
    margin-top: 8px;
    padding: 11px 20px;
    font-size: 15px;
    font-weight: 600;
    color: #fff;
+   text-decoration: none;
    background: var(--ui-accent);
    border: none;
    border-radius: 7px;
@@ -130,14 +132,14 @@ body.trial-active #stage {
    margin-top: 8px;
 }
 
-.form-actuons.btn {
+.form-actions .btn {
    margin-top: 0;
 }
 
 .btn-ghost {
    color: var(--ui-accent);
    background: transparent;
-   border: 1px solid ver(--ui-accent);
+   border: 1px solid var(--ui-accent);
 }
 
 .card-list {
