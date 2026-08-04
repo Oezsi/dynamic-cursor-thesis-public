@@ -30,11 +30,11 @@ Without valid parameters the app shows a "broken study link" screen and does not
 | ------------- | ----------- | ---------- |
 | `cursor` | `?cursor=cdn` | Overrides the cursor order (`c`/`d`/`n`, allthree, norepeats) |
 | `axes` | `?axes=vh` | Overrides the steering axis order (`h` = horizontal, `v` = vertical) |
-| `PID` | `?PID=...` | Participant's Prolific ID (appended automatically by Porlific); stored to identify and pay submission |
+| `PROLIFIC_PID` | `?PROLIFIC_PID=...` | Participant's Prolific ID (appended automatically by Porlific); stored to identify and pay submission |
 | `debug`| `?debug=1` | Skips fullscreen enforcement, enables single-block shortcuts |
 
 
-`cursor`, `axes`, `PID` are strictly required: missing or invalid values show a config-error screen and the study does not start.
+`cursor`, `axes`, `PROLIFIC_PID` are strictly required: missing or invalid values show a config-error screen and the study does not start.
 
 ## Study design
 Within-subjects, all participants complete all three cursor conditions in both tasks. The presentation order of conditions within a block follows a row of Williams Latin square (deterministic per participant, cursor mode, round and axis); there is no random shuffling.

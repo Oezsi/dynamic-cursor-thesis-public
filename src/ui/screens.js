@@ -110,7 +110,6 @@ export function renderDemographics(overlay, onSubmit, onBack) {
 
    const age = el("input");
    age.type = "number";
-   age.min = "0";
    age.className = "input input-narrow";
 
    const gender = radioGroup("gender", d.genderOptions);
@@ -122,6 +121,11 @@ export function renderDemographics(overlay, onSubmit, onBack) {
    form.appendChild(question(d.handednessLabel, hand.wrap));
    form.appendChild(question(d.inputDeviceLabel, device.wrap));
    box.appendChild(form);
+
+   // Under-age note
+   const ageNote = el("p", "note", d.ageBlockedNote);
+   ageNote.hidden = true;
+   box.appendChild(ageNote);
 
    // Wrong-device note (shown when a non-trackpad device is selected)
    const note = el("p", "note", d.deviceBlockedNote);
@@ -150,13 +154,15 @@ export function renderDemographics(overlay, onSubmit, onBack) {
    // the device matches and consent is checked.
    function updateStartState() {
       const dev = device.value();
+      const ageOk = age.value >= 18;
       const answered =
-         age.value !== "" &&
+         ageOk &&
          gender.value() !== null &&
          hand.value() !== null &&
          dev === d.requiredInputDevice &&
          consent.checked;
       btn.disabled = !answered;
+      ageNote.hidden = ageOk || age.value === "";
       note.hidden = !(dev !== null && dev !== d.requiredInputDevice);
    }
 
@@ -168,7 +174,7 @@ export function renderDemographics(overlay, onSubmit, onBack) {
       if (btn.disabled) return;
       btn.disabled = true;
       onSubmit({
-         age: age.value === "" ? null : parseInt(age.value, 10),
+         age: parseInt(age.value, 10),
          sex: gender.value(),
          handedness: hand.value(),
       });

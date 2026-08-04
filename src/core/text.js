@@ -48,6 +48,8 @@ export const texts = {
          "Please fill out the needed information",
 
       ageLabel: "Age",
+      ageBlockedNote:
+         "You must be at least 18 years old to take part in this study. If you are not, please return to Prolific.",
 
       genderLabel: "Gender",
       genderOptions: ["Male", "Female", "Other", "Prefer not to say"],
