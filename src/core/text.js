@@ -37,7 +37,7 @@ export const texts = {
       steering: {
          title: "Steering through a tunnel",
          body:
-            `You will see a straight tunnel formed by two walls. Move the cursor from the start of the tunnel (red line) to the far end (green line), staying between the walls the whole way.
+            `You will see a straight tunnel formed by two walls. Move the cursor from the start of the tunnel (red line) to the far end (green line), staying between the walls the whole way. If you hit the walls, you must try again from the start of the tunnel. 
             Go as fast as you can while keeping the cursor inside the tunnel.`,
       },
    },
