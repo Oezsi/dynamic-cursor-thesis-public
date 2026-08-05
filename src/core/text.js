@@ -79,10 +79,10 @@ export const texts = {
       highAnchor: "Strongly agree",
       submit: "Continue",
       items: [
-         { id: "control", text: "I felt in control of the cursor." },
-         { id: "precision", text: "I could position the cursor precisely." },
-         { id: "speed", text: "I could position the cursor fast." },
-         { id: "liking", text: "I liked using this cursor." },
+         { id: "control", text: "I was in control of this cursor." },
+         { id: "precision", text: "This cursor was precise." },
+         { id: "speed", text: "This cursor was fast." },
+         { id: "liking", text: "I liked this cursor." },
       ],
    },
 
